@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Form</h1>
+    <form autocomplete="off">
+        <table>
+            <tr>
+                <td><span>Name</span></td>
+                <td>
+                    <input type="text" name="name" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td><span>Password</span></td>
+                <td>
+                    <input type="password" name="password" id="password">
+                </td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="radio" name="gender" id="gender_male" value="male">
+                                <label for="gender_male">M</label>
+                            </td>
+                            <td>
+                                <input type="radio" name="gender" id="gender_female" value="female">
+                                <label for="gender_female">F</label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><span>Skills</span></td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="java_skill" id="java_skill">
+                                <label for="java_skill">Java</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="js_skill" id="js_skill">
+                                <label for="js_skill">JS</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="c_skill" id="c_skill">
+                                <label for="c_skill">C</label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>DOB</span>
+                </td>
+                <td>
+                    <input type="date" name="dob" id="dob" min="1960-01-01" max="2023-01-01">
+                </td>
+            </tr>
+            <tr>
+                <td><span>Qualification</span></td>
+                <td>
+                    <select name="qualifications" id="qualifications">
+                        <option value="AS">AS</option>
+                        <option value="BS">BS</option>
+                        <option value="MS">MS</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Register">
+                </td>
+                <td>
+                    <input type="button" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form> 
+</body>
+</html>
