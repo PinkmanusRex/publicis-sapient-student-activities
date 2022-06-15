@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow</title>
+</head>
+<body>
+   <canvas id="canvas" width="1000" height="1000"></canvas> 
+   <script type="text/javascript">
+       const colors = ['red','orange','yellow','green','deepskyblue','blue','purple'];
+       let ctx = document.querySelector("#canvas").getContext('2d');
+       colors.forEach((color, idx) => {
+           ctx.beginPath();
+           ctx.arc(500, 800, 400 - idx*25, 0, Math.PI, true);
+           ctx.lineWidth = 25;
+           ctx.strokeStyle = color;
+           ctx.stroke();
+       })
+   </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChessBoard</title>
+</head>
+<body>
+   <canvas id="canvas" style="border:2px solid black" width="800" height="800"></canvas> 
+   <script type="text/javascript">
+       let ctx = document.querySelector("#canvas").getContext('2d');
+       for (let i = 0; i < 8; i += 1) {
+           let white = (i % 2) == 0;
+           for (let j = 0; j < 8; j += 1) {
+                ctx.beginPath();
+                ctx.fillStyle = white ? 'white' : 'black';
+                ctx.fillRect(j*100, i*100, 100, 100);
+                white = !white;
+           }
+       }
+   </script>
+</body>
+</html>

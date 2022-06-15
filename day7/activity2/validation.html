@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Form</h1>
+    <form autocomplete="off" id="user-info-form" action="validation_success.html">
+        <table>
+            <tr>
+                <td><span>First Name</span></td>
+                <td>
+                    <input type="text" name="first-name" id="first-name">
+                </td>
+            </tr>
+            <tr>
+                <td><span>Last Name</span></td>
+                <td>
+                    <input type="text" name="last-name" id="last-name">
+                </td>
+            </tr>
+            <tr>
+                <td><span>Password</span></td>
+                <td>
+                    <input type="password" name="password" id="password">
+                </td>
+            </tr>
+            <tr>
+                <td><span>Confirm Password</span></td>
+                <td>
+                    <input type="password" name="conf-password" id="conf-password">
+                </td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="radio" name="gender" id="gender_male" value="male">
+                                <label for="gender_male">M</label>
+                            </td>
+                            <td>
+                                <input type="radio" name="gender" id="gender_female" value="female">
+                                <label for="gender_female">F</label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><span>Skills</span></td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="java_skill" id="java_skill">
+                                <label for="java_skill">Java</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="js_skill" id="js_skill">
+                                <label for="js_skill">JS</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="c_skill" id="c_skill">
+                                <label for="c_skill">C</label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Register">
+                </td>
+            </tr>
+        </table>
+    </form> 
+    <script type="text/javascript">
+        const frm = document.querySelector("#user-info-form");
+        const firstName = frm.querySelector("#first-name");
+        const lastName = frm.querySelector("#last-name");
+        const pswrd = frm.querySelector("#password");
+        const confPswrd = frm.querySelector("#conf-password");
+        const genders = frm.querySelectorAll("input[name='gender']");
+        const skills = frm.querySelectorAll("input[type='checkbox']");
+        frm.addEventListener("submit", (e) => {
+            let showAlert = false;
+            let alertMsges = [];
+            if (!firstName.value || firstName.value.trim().length < 3) {
+                showAlert = true;
+                alertMsges.push("First name must be 3 or more characters long");
+            }
+            if (!lastName.value || lastName.value.trim().length < 2) {
+                showAlert = true;
+                alertMsges.push("Last name must be 2 or more characters long");
+            }
+            if (![...genders].map(el => el.checked).reduce((a,b) => a ^ b)) {
+                showAlert = true;
+                alertMsges.push("Must select exactly one gender");
+            }
+            if (!pswrd.value) {
+                showAlert = true;
+                alertMsges.push("Must put in a password");
+            }
+            if (pswrd.value != confPswrd.value) {
+                showAlert = true;
+                alertMsges.push("Password and confirmation password must match");
+            }
+            if (![...skills].map(el => el.checked).reduce((a, b) => a | b)) {
+                showAlert = true;
+                alertMsges.push("Must select at least one skill");
+            }
+            if (showAlert) {
+                e.preventDefault();
+                alert(alertMsges.join("\n"));
+            }
+        })
+    </script>
+</body>
+</html>
